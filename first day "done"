@@ -1,0 +1,61 @@
+class Student:
+     def __init__(self, name, atten, dress, safety, cell ):
+        self.name = name
+        self.atten = atten
+        self.dress = dress
+        self.safety = safety
+        self.cell = cell
+
+     def assign_Atten(self, atten):
+        self.atten = atten
+
+     def assign_Dress(self, dress):
+        self.dress = dress
+
+     def assign_Cell(self, safety):
+        self.safety = safety
+
+     def assign_saftry(self, cell):
+        self.cell = cell
+
+     def display_properties(self):
+        print("Properties of the User:")
+        print("Name:", self.name)
+        print("Days missed:", self.atten)
+        print("Days not in dress code:", self.dress)
+        print("Days when they are not safe:", self.safety)
+        print("Cellphone usage:", self.cell)
+
+
+
+James = Student('James', '','','','')
+Adam = Student('Adam','','','','')
+Cole = Student('Cole', '','','','')
+Brian = Student('Brian', '','','','')
+David = Student('David', '','','','')
+John = Student('John', '','','','')
+Chandler = Student('Chandler', '','','','')
+Pearson = Student('Pearson', '','','','')
+Dwayne = Student('Dwayne', '','','','')
+Gavin = Student('Gavin', '','','','')
+Ryan = Student('Ryan', '','','','')
+Shahood = Student('Shahood', '','','','')
+Chris = Student('Chris', '','','','')
+Aiden = Student('Aiden', '','','','')
+Jaiden = Student('Jaiden', '','','','')
+Leo = Student('Leo', '','','','')
+Marcos = Student('Marcos', '','','','')
+Muntag = Student('Muntag', '','','','')
+Nate = Student('Nate', '','','','')
+Mason = Student('Mason', '','','','')
+
+
+Class = [James,Adam,Cole,Brian,David,John,Chandler,Pearson,Dwayne,Gavin,Ryan,Shahood,Chris,Aiden,Leo,Marcos,Muntag,Nate,Mason]
+room =  ['James','Adam','Cole','Brian','David','John','Chandler','Pearson','Dwayne','Gavin','Ryan','Shahood','Chris','Aiden','Leo','Marcos','Muntag','Nate','Mason']
+
+
+
+
+def mainmenu():
+   print("What student do you want to see?\n")
+   name = input()
