@@ -1,0 +1,114 @@
+class Student:
+    def __init__(self, name, atten=None, dress=None, safety=None, cell=None):
+        self.name = name
+        self.atten = [] if atten is None else atten
+        self.dress = [] if dress is None else dress
+        self.safety = [] if safety is None else safety
+        self.cell = [] if cell is None else cell
+
+    def assign_attendance(self, dates):
+        self.atten.extend(dates)
+
+    def assign_dress(self, dates):
+        self.dress.extend(dates)
+
+    def assign_safety(self, dates):
+        self.safety.extend(dates)
+
+    def assign_cell(self, dates):
+        self.cell.extend(dates)
+
+    def display_properties(self):
+        print("Statistics of the Student:")
+        print("Name:", self.name)
+        print("Days missed:", self.atten)
+        print("Days not in dress code:", self.dress)
+        print("Days when they are not safe:", self.safety)
+        print("Cellphone usage:", self.cell)
+
+
+students = {
+    'james': Student('James'),
+    'adam': Student('Adam'),
+    'cole': Student('Cole'),
+    'brian': Student('Brian'),
+    'david': Student('David'),
+    'john': Student('John'),
+    'chandler': Student('Chandler'),
+    'pearson': Student('Pearson'),
+    'dwayne': Student('Dwayne'),
+    'gavin': Student('Gavin'),
+    'ryan': Student('Ryan'),
+    'shahood': Student('Shahood'),
+    'chris': Student('Chris'),
+    'aiden': Student('Aiden'),
+    'leo': Student('Leo'),
+    'marcos': Student('Marcos'),
+    'muntag': Student('Muntag'),
+    'nate': Student('Nate'),
+    'mason': Student('Mason')
+}
+
+
+def display_stats():
+    stats_name = input("What student do you want to see?\n").lower()
+    student = students.get(stats_name)
+    if student:
+        student.display_properties()
+    else:
+        print("Student not found.")
+    menu()
+
+
+def display_all():
+    for student in students.values():
+        student.display_properties()
+        print("\n")
+    menu()
+
+
+def edit_student():
+    edit_name = input("What student do you want to edit?\n").lower()
+    student = students.get(edit_name)
+    if student:
+        print("\n" * 3)
+        student.display_properties()
+        option = input("\n\n\nPick an Option.\n1: Mark Attendance\n2: Dress Code\n3: Safety\n4: Cellphone\n")
+        if option == '1':
+            dates = input("Enter dates separated by commas (ex. 4/11,4/12): ").split(', ')
+            student.assign_attendance(dates)
+        elif option == '2':
+            dates = input("Enter dates separated by commas (ex. 4/11,4/12): ").split(', ')
+            student.assign_dress(dates)
+        elif option == '3':
+            dates = input("Enter dates separated by commas (ex. 4/11,4/12): ").split(', ')
+            student.assign_safety(dates)
+        elif option == '4':
+            dates = input("Enter dates separated by commas (ex. 4/11,4/12): ").split(', ')
+            student.assign_cell(dates)
+        else:
+            print("Invalid option.")
+        edit_more = input("Do you want to edit more? (Y/N) ").lower()
+        if edit_more in ["yes", "y"]:
+            edit_student()
+        elif edit_more in ["no", "n"]:
+            menu()
+    else:
+        print("Student not found.")
+        menu()
+
+
+def menu():
+    print("\n"*2,"=" * 15, "Main Menu", "=" * 15)
+    menu_choice = input(
+        "Do you want to display a single student? Press 1\nIf you want to display all students, press 2\nTo edit a "
+        "student, press 3\n")
+    actions = {'1': display_stats, '2': display_all, '3': edit_student}
+    if menu_choice in actions:
+        actions[menu_choice]()
+    else:
+        print("Provide a valid input")
+        menu()
+
+
+menu()
